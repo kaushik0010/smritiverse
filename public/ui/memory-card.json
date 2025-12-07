@@ -1,0 +1,259 @@
+{
+  "element": {
+    "type": "container",
+    "sourceTag": "div",
+    "children": [
+      {
+        "sourceTag": "panel",
+        "type": "custom",
+        "children": [
+          {
+            "sourceTag": "container",
+            "type": "custom",
+            "children": [
+              {
+                "sourceTag": "text",
+                "type": "custom",
+                "children": [
+                  "Memory Title"
+                ],
+                "properties": {
+                  "class": "title",
+                  "id": "card-title"
+                },
+                "dataUid": "uid-3"
+              },
+              {
+                "sourceTag": "text",
+                "type": "custom",
+                "children": [
+                  "Loading memory..."
+                ],
+                "properties": {
+                  "class": "story",
+                  "id": "card-story"
+                },
+                "dataUid": "uid-4"
+              },
+              {
+                "sourceTag": "button",
+                "type": "custom",
+                "children": [
+                  {
+                    "sourceTag": "text",
+                    "type": "custom",
+                    "children": [
+                      "Close"
+                    ],
+                    "properties": {
+                      "class": "btn-text"
+                    },
+                    "dataUid": "uid-6"
+                  }
+                ],
+                "properties": {
+                  "class": "close-btn",
+                  "id": "close-btn",
+                  "value": "close"
+                },
+                "dataUid": "uid-5"
+              }
+            ],
+            "properties": {
+              "class": "content"
+            },
+            "dataUid": "uid-2"
+          }
+        ],
+        "properties": {
+          "class": "memory-card"
+        },
+        "dataUid": "uid-1"
+      }
+    ],
+    "properties": {}
+  },
+  "classes": {
+    "memory-card": {
+      "content": {
+        "width": "600px",
+        "height": "350px",
+        "backgroundColor": "rgba(20, 20, 30, 0.95)",
+        "borderRadius": 30,
+        "padding": "30px",
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "space-between",
+        "border": "3px solid #ffcc00"
+      }
+    },
+    "content": {
+      "content": {
+        "width": "100%",
+        "height": "100%",
+        "flexDirection": "column",
+        "alignItems": "center"
+      }
+    },
+    "title": {
+      "content": {
+        "fontSize": "48px",
+        "color": "#ffcc00",
+        "marginBottom": "20px",
+        "fontWeight": "bold",
+        "textAlign": "center"
+      }
+    },
+    "story": {
+      "content": {
+        "fontSize": "28px",
+        "color": "#eeeeee",
+        "textAlign": "center",
+        "marginBottom": "30px",
+        "flexGrow": "1"
+      }
+    },
+    "close-btn": {
+      "content": {
+        "width": "180px",
+        "height": "60px",
+        "backgroundColor": "#333344",
+        "borderRadius": 30,
+        "alignItems": "center",
+        "justifyContent": "center",
+        "hover": {
+          "backgroundColor": "#444455"
+        }
+      }
+    },
+    "btn-text": {
+      "content": {
+        "color": "#ffffff",
+        "fontSize": "28px",
+        "fontWeight": "bold"
+      }
+    }
+  },
+  "ranges": {
+    "uid-1": {
+      "start": {
+        "line": 0,
+        "column": 0
+      },
+      "end": {
+        "line": 9,
+        "column": 8
+      }
+    },
+    "uid-2": {
+      "start": {
+        "line": 1,
+        "column": 2
+      },
+      "end": {
+        "line": 8,
+        "column": 14
+      }
+    },
+    "uid-3": {
+      "start": {
+        "line": 2,
+        "column": 4
+      },
+      "end": {
+        "line": 2,
+        "column": 59
+      }
+    },
+    "uid-4": {
+      "start": {
+        "line": 3,
+        "column": 4
+      },
+      "end": {
+        "line": 3,
+        "column": 64
+      }
+    },
+    "uid-5": {
+      "start": {
+        "line": 5,
+        "column": 4
+      },
+      "end": {
+        "line": 7,
+        "column": 13
+      }
+    },
+    "uid-6": {
+      "start": {
+        "line": 6,
+        "column": 6
+      },
+      "end": {
+        "line": 6,
+        "column": 41
+      }
+    },
+    "memory-card": {
+      "start": {
+        "line": 12,
+        "column": 2
+      },
+      "end": {
+        "line": 12,
+        "column": 14
+      }
+    },
+    "content": {
+      "start": {
+        "line": 24,
+        "column": 2
+      },
+      "end": {
+        "line": 24,
+        "column": 10
+      }
+    },
+    "title": {
+      "start": {
+        "line": 30,
+        "column": 2
+      },
+      "end": {
+        "line": 30,
+        "column": 8
+      }
+    },
+    "story": {
+      "start": {
+        "line": 37,
+        "column": 2
+      },
+      "end": {
+        "line": 37,
+        "column": 8
+      }
+    },
+    "close-btn": {
+      "start": {
+        "line": 44,
+        "column": 2
+      },
+      "end": {
+        "line": 44,
+        "column": 12
+      }
+    },
+    "btn-text": {
+      "start": {
+        "line": 55,
+        "column": 2
+      },
+      "end": {
+        "line": 55,
+        "column": 11
+      }
+    }
+  }
+}

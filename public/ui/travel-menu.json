@@ -1,0 +1,492 @@
+{
+  "element": {
+    "type": "container",
+    "sourceTag": "div",
+    "children": [
+      {
+        "sourceTag": "panel",
+        "type": "custom",
+        "children": [
+          {
+            "sourceTag": "container",
+            "type": "custom",
+            "children": [
+              {
+                "sourceTag": "text",
+                "type": "custom",
+                "children": [
+                  "DESTINATION"
+                ],
+                "properties": {
+                  "class": "label"
+                },
+                "dataUid": "uid-3"
+              }
+            ],
+            "properties": {
+              "class": "header"
+            },
+            "dataUid": "uid-2"
+          },
+          {
+            "sourceTag": "container",
+            "type": "custom",
+            "children": [
+              {
+                "sourceTag": "text",
+                "type": "custom",
+                "children": [
+                  "Loading..."
+                ],
+                "properties": {
+                  "class": "dest-name",
+                  "id": "dest-name"
+                },
+                "dataUid": "uid-5"
+              },
+              {
+                "sourceTag": "text",
+                "type": "custom",
+                "children": [
+                  "Select a world to explore."
+                ],
+                "properties": {
+                  "class": "dest-desc",
+                  "id": "dest-desc"
+                },
+                "dataUid": "uid-6"
+              }
+            ],
+            "properties": {
+              "class": "info"
+            },
+            "dataUid": "uid-4"
+          },
+          {
+            "sourceTag": "container",
+            "type": "custom",
+            "children": [
+              {
+                "sourceTag": "button",
+                "type": "custom",
+                "children": [
+                  {
+                    "sourceTag": "text",
+                    "type": "custom",
+                    "children": [
+                      "<"
+                    ],
+                    "properties": {
+                      "class": "arrow"
+                    },
+                    "dataUid": "uid-9"
+                  }
+                ],
+                "properties": {
+                  "class": "nav-btn",
+                  "id": "btn-prev",
+                  "value": "prev"
+                },
+                "dataUid": "uid-8"
+              },
+              {
+                "sourceTag": "button",
+                "type": "custom",
+                "children": [
+                  {
+                    "sourceTag": "text",
+                    "type": "custom",
+                    "children": [
+                      "Travel"
+                    ],
+                    "properties": {
+                      "class": "btn-text"
+                    },
+                    "dataUid": "uid-11"
+                  }
+                ],
+                "properties": {
+                  "class": "action-btn",
+                  "id": "btn-enter",
+                  "value": "enter"
+                },
+                "dataUid": "uid-10"
+              },
+              {
+                "sourceTag": "button",
+                "type": "custom",
+                "children": [
+                  {
+                    "sourceTag": "text",
+                    "type": "custom",
+                    "children": [
+                      ">"
+                    ],
+                    "properties": {
+                      "class": "arrow"
+                    },
+                    "dataUid": "uid-13"
+                  }
+                ],
+                "properties": {
+                  "class": "nav-btn",
+                  "id": "btn-next",
+                  "value": "next"
+                },
+                "dataUid": "uid-12"
+              }
+            ],
+            "properties": {
+              "class": "controls"
+            },
+            "dataUid": "uid-7"
+          }
+        ],
+        "properties": {
+          "class": "travel-menu"
+        },
+        "dataUid": "uid-1"
+      }
+    ],
+    "properties": {}
+  },
+  "classes": {
+    "travel-menu": {
+      "content": {
+        "width": "400px",
+        "height": "500px",
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "borderRadius": 24,
+        "padding": "24px",
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "space-between",
+        "border": "2px solid #00ccff"
+      }
+    },
+    "header": {
+      "content": {
+        "width": "100%",
+        "alignItems": "center",
+        "borderBottom": "1px solid #444",
+        "paddingBottom": "10px"
+      }
+    },
+    "label": {
+      "content": {
+        "color": "#00ccff",
+        "fontSize": "18px",
+        "letterSpacing": "2px"
+      }
+    },
+    "info": {
+      "content": {
+        "width": "100%",
+        "flexGrow": "1",
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "padding": "20px 0"
+      }
+    },
+    "dest-name": {
+      "content": {
+        "color": "#ffffff",
+        "fontSize": "36px",
+        "fontWeight": "bold",
+        "textAlign": "center",
+        "marginBottom": "16px"
+      }
+    },
+    "dest-desc": {
+      "content": {
+        "color": "#cccccc",
+        "fontSize": "20px",
+        "textAlign": "center"
+      }
+    },
+    "controls": {
+      "content": {
+        "width": "100%",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "alignItems": "center"
+      }
+    },
+    "nav-btn": {
+      "content": {
+        "width": "80px",
+        "height": "80px",
+        "backgroundColor": "#333344",
+        "borderRadius": 40,
+        "alignItems": "center",
+        "justifyContent": "center"
+      }
+    },
+    "action-btn": {
+      "content": {
+        "width": "160px",
+        "height": "80px",
+        "backgroundColor": "#00ccff",
+        "borderRadius": 16,
+        "alignItems": "center",
+        "justifyContent": "center"
+      }
+    },
+    "arrow": {
+      "content": {
+        "color": "#fff",
+        "fontSize": "30px"
+      }
+    },
+    "btn-text": {
+      "content": {
+        "color": "#000",
+        "fontSize": "24px",
+        "fontWeight": "bold"
+      }
+    }
+  },
+  "ranges": {
+    "uid-1": {
+      "start": {
+        "line": 0,
+        "column": 0
+      },
+      "end": {
+        "line": 23,
+        "column": 8
+      }
+    },
+    "uid-2": {
+      "start": {
+        "line": 1,
+        "column": 2
+      },
+      "end": {
+        "line": 3,
+        "column": 14
+      }
+    },
+    "uid-3": {
+      "start": {
+        "line": 2,
+        "column": 4
+      },
+      "end": {
+        "line": 2,
+        "column": 42
+      }
+    },
+    "uid-4": {
+      "start": {
+        "line": 5,
+        "column": 2
+      },
+      "end": {
+        "line": 8,
+        "column": 14
+      }
+    },
+    "uid-5": {
+      "start": {
+        "line": 6,
+        "column": 4
+      },
+      "end": {
+        "line": 6,
+        "column": 60
+      }
+    },
+    "uid-6": {
+      "start": {
+        "line": 7,
+        "column": 4
+      },
+      "end": {
+        "line": 7,
+        "column": 76
+      }
+    },
+    "uid-7": {
+      "start": {
+        "line": 10,
+        "column": 2
+      },
+      "end": {
+        "line": 22,
+        "column": 14
+      }
+    },
+    "uid-8": {
+      "start": {
+        "line": 11,
+        "column": 4
+      },
+      "end": {
+        "line": 13,
+        "column": 13
+      }
+    },
+    "uid-9": {
+      "start": {
+        "line": 12,
+        "column": 6
+      },
+      "end": {
+        "line": 12,
+        "column": 37
+      }
+    },
+    "uid-10": {
+      "start": {
+        "line": 15,
+        "column": 4
+      },
+      "end": {
+        "line": 17,
+        "column": 13
+      }
+    },
+    "uid-11": {
+      "start": {
+        "line": 16,
+        "column": 6
+      },
+      "end": {
+        "line": 16,
+        "column": 42
+      }
+    },
+    "uid-12": {
+      "start": {
+        "line": 19,
+        "column": 4
+      },
+      "end": {
+        "line": 21,
+        "column": 13
+      }
+    },
+    "uid-13": {
+      "start": {
+        "line": 20,
+        "column": 6
+      },
+      "end": {
+        "line": 20,
+        "column": 37
+      }
+    },
+    "travel-menu": {
+      "start": {
+        "line": 26,
+        "column": 2
+      },
+      "end": {
+        "line": 26,
+        "column": 14
+      }
+    },
+    "header": {
+      "start": {
+        "line": 37,
+        "column": 2
+      },
+      "end": {
+        "line": 37,
+        "column": 9
+      }
+    },
+    "label": {
+      "start": {
+        "line": 43,
+        "column": 2
+      },
+      "end": {
+        "line": 43,
+        "column": 8
+      }
+    },
+    "info": {
+      "start": {
+        "line": 48,
+        "column": 2
+      },
+      "end": {
+        "line": 48,
+        "column": 7
+      }
+    },
+    "dest-name": {
+      "start": {
+        "line": 56,
+        "column": 2
+      },
+      "end": {
+        "line": 56,
+        "column": 12
+      }
+    },
+    "dest-desc": {
+      "start": {
+        "line": 63,
+        "column": 2
+      },
+      "end": {
+        "line": 63,
+        "column": 12
+      }
+    },
+    "controls": {
+      "start": {
+        "line": 68,
+        "column": 2
+      },
+      "end": {
+        "line": 68,
+        "column": 11
+      }
+    },
+    "nav-btn": {
+      "start": {
+        "line": 74,
+        "column": 2
+      },
+      "end": {
+        "line": 74,
+        "column": 10
+      }
+    },
+    "action-btn": {
+      "start": {
+        "line": 82,
+        "column": 2
+      },
+      "end": {
+        "line": 82,
+        "column": 13
+      }
+    },
+    "arrow": {
+      "start": {
+        "line": 90,
+        "column": 2
+      },
+      "end": {
+        "line": 90,
+        "column": 8
+      }
+    },
+    "btn-text": {
+      "start": {
+        "line": 91,
+        "column": 2
+      },
+      "end": {
+        "line": 91,
+        "column": 11
+      }
+    }
+  }
+}

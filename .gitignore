@@ -54,8 +54,3 @@ coverage/
 
 # Local SSL certificates (auto-generated)
 .cert/
-
-# Meta Spatial Editor exports
-public/gltf/generated/
-public/glxf/
-public/ui/
