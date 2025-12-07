@@ -1,0 +1,69 @@
+<panel class="elevator-panel">
+  <container class="column">
+    <button class="move-btn" id="btn-up" value="up">
+      <text class="arrow">^</text>
+      <text class="label">Up</text>
+    </button>
+    
+    <!-- Spacer -->
+    <container class="spacer"></container>
+
+    <button class="move-btn" id="btn-down" value="down">
+      <text class="label">Down</text>
+      <text class="arrow">v</text>
+    </button>
+  </container>
+</panel>
+
+<style>
+  .elevator-panel {
+    width: 200px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker for better contrast */
+    border-radius: 30px; /* Rounder corners */
+    padding: 20px;
+    border: 3px solid #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .column {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+  }
+  .spacer {
+    height: 30px; /* Explicit gap */
+    width: 10px;
+  }
+  .move-btn {
+    width: 140px;
+    height: 140px;
+    background-color: #333344;
+    border-radius: 70px; /* Circular buttons look nice in VR */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+  .move-btn:hover {
+    background-color: #555566;
+    border-color: #ffffff;
+  }
+  .move-btn:active {
+    background-color: #ffcc00;
+  }
+  .arrow {
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .label {
+    color: #cccccc;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>

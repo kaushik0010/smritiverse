@@ -1,0 +1,68 @@
+<panel class="move-panel">
+  <container class="column">
+    <button class="move-btn" id="btn-fwd" value="fwd">
+      <text class="arrow">^</text>
+      <text class="label">Fwd</text>
+    </button>
+    
+    <container class="spacer"></container>
+
+    <button class="move-btn" id="btn-back" value="back">
+      <text class="label">Back</text>
+      <text class="arrow">v</text>
+    </button>
+  </container>
+</panel>
+
+<style>
+  .move-panel {
+    width: 200px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 30px;
+    padding: 20px;
+    border: 3px solid #00ff00; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .column {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .spacer {
+    height: 30px;
+    width: 10px;
+  }
+  .move-btn {
+    width: 140px;
+    height: 140px;
+    background-color: #334433;
+    border-radius: 70px; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+  .move-btn:hover {
+    background-color: #445544;
+    border-color: #ffffff;
+  }
+  .move-btn:active {
+    background-color: #66ff66;
+  }
+  .arrow {
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .label {
+    color: #cccccc;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>

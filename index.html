@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>SmritiVerse | Travel Memories</title>
+
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+      /* --- 1. RESET & CORE --- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body, html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        background-color: #000;
+      }
+
+      /* --- 2. BACKGROUND SLIDER --- */
+      #bg-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5000 !important; /* High Z-Index to cover canvas */
+      }
+
+      .bg-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
+
+      .bg-slide.active {
+        opacity: 1;
+      }
+
+      /* Dark Overlay to make text pop */
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); 
+        z-index: 1;
+      }
+
+      /* --- 3. LANDING CONTENT --- */
+      #landing-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999 !important; /* Highest Z-Index */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: opacity 0.8s ease;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      #landing-content.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* --- 4. TYPOGRAPHY --- */
+      .nav-bar {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 10000; /* Above everything */
+      }
+
+      .logo-icon {
+        font-size: 28px;
+        color: #fff;
+      }
+
+      .small-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        font-weight: 700;
+        opacity: 0.9;
+      }
+
+      .main-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 5rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        line-height: 1.1;
+        letter-spacing: 2px;
+        text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      }
+
+      .subtitle {
+        font-size: 18px;
+        max-width: 600px;
+        line-height: 1.6;
+        margin-bottom: 50px;
+        color: #eeeeee;
+        font-weight: 300;
+      }
+
+      /* --- 5. BUTTON --- */
+      .enter-btn {
+        padding: 18px 45px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: #333;
+        background: #ffffff;
+        border: none;
+        border-radius: 50px; /* Pill shape */
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+
+      .enter-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        background: #f0f0f0;
+      }
+
+      /* --- 3D CONTAINER --- */
+      #scene-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; /* Starts below UI */
+        pointer-events: none; /* Let clicks pass through until activated */
+      }
+
+      /* ==================== RESPONSIVE STYLES ==================== */
+
+      /* Tablet Devices (768px - 1024px) */
+      @media screen and (max-width: 1024px) {
+        .nav-bar {
+          left: 30px;
+          top: 25px;
+          font-size: 22px;
+        }
+        
+        .logo-icon {
+          font-size: 26px;
+        }
+        
+        .main-title {
+          font-size: 4.5rem;
+          margin-bottom: 18px;
+        }
+        
+        .subtitle {
+          font-size: 17px;
+          max-width: 550px;
+          margin-bottom: 45px;
+        }
+        
+        .enter-btn {
+          padding: 16px 40px;
+        }
+      }
+
+      /* Mobile Landscape & Small Tablets (576px - 768px) */
+      @media screen and (max-width: 768px) {
+        .nav-bar {
+          left: 20px;
+          top: 20px;
+          font-size: 20px;
+        }
+        
+        .logo-icon {
+          font-size: 24px;
+        }
+        
+        .main-title {
+          font-size: 3.5rem;
+          margin-bottom: 15px;
+        }
+        
+        .small-title {
+          font-size: 13px;
+          letter-spacing: 3px;
+          margin-bottom: 12px;
+        }
+        
+        .subtitle {
+          font-size: 16px;
+          max-width: 500px;
+          margin-bottom: 40px;
+          padding: 0 20px;
+        }
+        
+        .enter-btn {
+          padding: 15px 35px;
+          font-size: 13px;
+        }
+      }
+
+      /* Mobile Portrait (up to 576px) */
+      @media screen and (max-width: 576px) {
+        .nav-bar {
+          left: 15px;
+          top: 15px;
+          font-size: 18px;
+          gap: 8px;
+        }
+        
+        .logo-icon {
+          font-size: 22px;
+        }
+        
+        .main-title {
+          font-size: 2.8rem;
+          margin-bottom: 12px;
+          letter-spacing: 1px;
+          padding: 0 10px;
+        }
+        
+        .small-title {
+          font-size: 12px;
+          letter-spacing: 2.5px;
+          margin-bottom: 10px;
+        }
+        
+        .subtitle {
+          font-size: 15px;
+          max-width: 90%;
+          margin-bottom: 35px;
+          line-height: 1.5;
+          padding: 0 15px;
+        }
+        
+        .enter-btn {
+          padding: 14px 30px;
+          font-size: 12px;
+          min-width: 200px;
+        }
+        
+        #landing-content {
+          padding: 15px;
+        }
+      }
+
+      /* Very Small Mobile Devices (up to 360px) */
+      @media screen and (max-width: 360px) {
+        .nav-bar {
+          font-size: 16px;
+          left: 12px;
+          top: 12px;
+        }
+        
+        .logo-icon {
+          font-size: 20px;
+        }
+        
+        .main-title {
+          font-size: 2.2rem;
+          margin-bottom: 10px;
+        }
+        
+        .small-title {
+          font-size: 11px;
+          letter-spacing: 2px;
+        }
+        
+        .subtitle {
+          font-size: 14px;
+          margin-bottom: 30px;
+        }
+        
+        .enter-btn {
+          padding: 12px 25px;
+          font-size: 11px;
+          min-width: 180px;
+        }
+      }
+
+      /* Height-based adjustments for very tall/short screens */
+      @media screen and (max-height: 600px) {
+        #landing-content {
+          justify-content: flex-start;
+          padding-top: 100px;
+        }
+        
+        .main-title {
+          font-size: 3rem;
+          margin-bottom: 15px;
+        }
+        
+        .subtitle {
+          margin-bottom: 30px;
+        }
+        
+        .nav-bar {
+          top: 15px;
+        }
+      }
+
+      /* Meta Quest specific considerations */
+      @media (orientation: portrait) and (max-width: 1024px) {
+        /* Optimize for VR headset portrait modes if needed */
+        .main-title {
+          font-size: 3rem;
+        }
+        
+        .subtitle {
+          font-size: 16px;
+          max-width: 80%;
+        }
+      }
+
+      /* Prevent text from becoming too small on very small screens */
+      @media screen and (max-width: 300px) {
+        .main-title {
+          font-size: 2rem;
+        }
+        
+        .small-title {
+          font-size: 10px;
+          letter-spacing: 1.5px;
+        }
+        
+        .subtitle {
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Background Slider -->
+    <div id="bg-container">
+       <!-- Replace these URLs with your local screenshots -->
+       <div class="bg-slide active" style="background-image: url('/images/japan.webp');"></div> 
+       <div class="bg-slide" style="background-image: url('/images/traveler.webp');"></div> 
+       <div class="bg-slide" style="background-image: url('/images/lantern.webp');"></div> 
+       <div class="overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-bar">
+      <span class="logo-icon">❖</span> SmritiVerse
+    </div>
+
+    <!-- Main Content -->
+    <div id="landing-content">
+      <p class="small-title">Discover the Forgotten World</p>
+      <h1 class="main-title">NEW ADVENTURE</h1>
+      <p class="subtitle">
+        Step into captured memories. Experience the beauty of distant lands through immersive portals, right from your living room.
+      </p>
+      
+      <button id="enter-btn" class="enter-btn">Enter XR Experience</button>
+    </div>
+
+    <!-- 3D Container -->
+    <div id="scene-container"></div>
+
+    <!-- MAIN SCRIPT: Handles UI and Starts App on Click -->
+    <script type="module">
+      // Import the start function (It doesn't run automatically anymore!)
+      import { startExperience } from "/src/index.ts";
+
+      const btn = document.getElementById('enter-btn');
+      const content = document.getElementById('landing-content');
+      const navBar = document.querySelector('.nav-bar');
+      const bgContainer = document.getElementById('bg-container');
+      const sceneContainer = document.getElementById('scene-container');
+      
+      // --- SLIDER LOGIC ---
+      const slides = document.querySelectorAll('.bg-slide');
+      let currentSlide = 0;
+      function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }
+      setInterval(nextSlide, 5000);
+
+      // --- ENTER LOGIC ---
+      btn.addEventListener('click', () => {
+        console.log("🚀 User Clicked Enter - Starting Engine...");
+
+        // 1. Fade out UI
+        content.classList.add('hidden');
+        if(navBar) navBar.style.opacity = "0";
+        
+        // 2. Initialize the 3D World!
+        startExperience();
+        
+        // 3. Fade out Background & Enable Canvas
+        setTimeout(() => {
+            bgContainer.style.transition = "opacity 1s";
+            bgContainer.style.opacity = "0";
+            // Remove from DOM to save performance
+            setTimeout(() => bgContainer.remove(), 1000);
+            
+            // Enable pointer events for the 3D scene
+            sceneContainer.style.pointerEvents = "auto";
+        }, 500);
+
+        // 4. Unlock Audio
+        if (window.AudioContext || window.webkitAudioContext) {
+           const AudioContext = window.AudioContext || window.webkitAudioContext;
+           new AudioContext().resume();
+        }
+      });
+    </script>
+  </body>
+</html>
