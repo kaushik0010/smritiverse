@@ -74,9 +74,9 @@ export class PortalSystem extends createSystem({}) {
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
         side: THREE.BackSide, 
-        clippingPlanes: [this.clipPlane], // Must be present
+        clippingPlanes: [this.clipPlane], 
         clipShadows: true,
-        clipping: true // <--- CRITICAL
+        clipping: true 
     });
 
     this.skyMesh = new THREE.Mesh(geo, this.skyMat);
@@ -148,14 +148,12 @@ export class PortalSystem extends createSystem({}) {
       this.world.scene.add(this.exitHole);
   }
 
-  // --- 3. UPDATE THIS METHOD TO ACCEPT 2 COLORS ---
   updateSkyGradient(topHex: number, bottomHex: number) {
       if (this.skyMat) {
           this.skyMat.uniforms.topColor.value.setHex(topHex);
           this.skyMat.uniforms.bottomColor.value.setHex(bottomHex);
       }
   }
-  // ------------------------------------------------
 
   update() {
     if (this.skyMesh) {
